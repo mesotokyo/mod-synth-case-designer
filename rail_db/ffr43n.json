@@ -1,0 +1,13 @@
+{
+  "name": "Takachi FFR-43N",
+  "type": "single",
+  "size": { "width": 48.1, "height": 10.15 },
+  "offset": { "x": 3, "y": 4.9 },
+  "mountHoles": [
+    { "x": 15.2, "y": 6.55, "d": 4},
+    { "x": 45.2, "y": 6.55, "d": 4}
+  ],
+  "svgFile": "FFR-43N.svg",
+  "group": "",
+  "outputName": "ffr43n"
+}

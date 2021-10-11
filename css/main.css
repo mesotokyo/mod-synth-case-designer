@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#title {
+    border-bottom: 1px solid lightgray;
+    padding-left: 8px;
+    background: #303030;
+}
+
+#title h1 {
+    font-size: 150%;
+    color: #F0F0F0;
+    font-weight: bold;
+    font-family: cursive;
+    text-align: center;
+    line-height: 200%;
+}
+
+.credit {
+    color: gray;
+    margin-top: 4em;
+    border-top: 1px solid lightgray;
+    padding: 4px 4px;
+}
+
+button {
+    padding: 0 0.5em;
+    cursor: pointer;
+}
+
+#app-main {
+    display: flex;
+}
+
+#control-panel {
+    flex:  0 0 300px;
+    background: #e6ecf5;
+    padding: 4px 8px;
+    font-family: serif;
+    background: -webkit-gradient(linear, left top, right bottom, from(#e6ecf5),
+                                 color-stop(0.25, #e6ecf5),
+                                 color-stop(0.25, white),
+                                 color-stop(0.5, white),
+                                 color-stop(0.5, #e6ecf5),
+                                 color-stop(0.75, #e6ecf5),
+                                 color-stop(0.75, white),
+                                 to(white));
+    background: -moz-linear-gradient(-45deg,
+                                     #e6ecf5 25%, white 25%,
+                                     white 50%, #e6ecf5 50%,
+                                     #e6ecf5 75%, white 75%,
+                                     white);
+    background: linear-gradient(-45deg,
+                                #e6ecf5 25%, white 25%,
+                                white 50%, #e6ecf5 50%,
+                                #e6ecf5 75%, white 75%,
+                                white);
+    background-size: 4px 4px;
+}
+
+#blueprint {
+    flex:  0 1 100%;
+    overflow: scroll;
+}
+
+#toolbar {
+    width: 100%;
+}
+
+#toolbar-item {
+}
+
+
+#blueprint-body {
+    width: 100%;
+    border: 1px dotted lightgray;
+}
+
+.pref-group {
+    padding: 2px 1em;
+    margin-bottom: 1em;
+}
+
+.pref-group .group-name {
+    margin-left: -1em;
+    margin-top: 1em;
+}
+
+.form-item-inline { display: flex; }
+.form-item-inline .label { flex: 1 0 auto; }
+.form-item-inline input,
+.form-item-inline select {
+    flex: 0 0 100px;
+    width: 100px;
+    box-sizing: border-box;
+}
+.form-item-inline select.w150 {
+    flex: 0 0 150px;
+    width: 150px;
+}
+.form-item-inline input { padding: 0 3px; }
+
+
+.group-name { font-weight: bold; }
+
+input.ratio {
+    width: 4em;
+}
+
+#visibilities {
+    position: fixed;
+    bottom: 10px;
+    border: 1px solid lightgray;
+    width: 296px;
+    box-shadow: 2px 2px 2px 2px rgb(10 10 10 / 10%);
+}
+
+.visibilities-wrap {
+    padding: 2px 6px;
+    background: ivory;
+}
+
+@media screen and (max-width:480px) {
+    #app-main {
+        display: block;
+        font-size: 18px;
+    }
+    #title h1 {
+        font-size: 100%;
+    }
+    input, select {
+        font-size: 18px;
+    }
+    .pref-group {
+        margin-bottom: 0;
+    }
+    #blueprint {
+        margin-bottom: 9em;
+    }
+}

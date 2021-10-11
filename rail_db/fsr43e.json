@@ -1,0 +1,13 @@
+{
+  "name": "Takachi FSR-43E",
+  "type": "double",
+  "size": { "width": 10.5, "height": 21.1 },
+  "nutInterval": 10.9,
+  "offset": { "x": 0, "y": 5.1 },
+  "mountHoles": [
+    { "x": 8.3, "y": 10.55, "d": 4}
+  ],
+  "svgFile": "FSR-43E.svg",
+  "group": "",
+  "outputName": "fsr43e"
+}

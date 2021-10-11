@@ -1,0 +1,13 @@
+{
+  "name": "VECTOR VectorPak T-Strut",
+  "type": "single",
+  "size": { "width": 25.4, "height": 7.3914 },
+  "nutInterval": 7.3914,
+  "offset": { "x": 0, "y": 3.6957 },
+  "mountHoles": [
+    { "x": 12.7, "y": 4.6736, "d": 4.8}
+  ],
+  "svgFile": "vector.svg",
+  "group": "",
+  "outputName": "vector"
+}

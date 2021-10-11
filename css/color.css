@@ -1,0 +1,71 @@
+.side-panel {
+    fill: none;
+    stroke: red;
+    stroke-width: 0.2;
+}
+
+.module-panel {
+    fill: none;
+    stroke: blue;
+    stroke-width: 0.2;
+}
+
+.mount-hole {
+    fill: none;
+    stroke: black;
+    stroke-width: 0.2;
+}
+
+.rail-rect {
+    fill: none;
+    stroke: gray;
+    opacity: 50%;
+    stroke-width: 0.2;
+}
+
+.rail {
+    fill: none;
+    stroke: green;
+    stroke-width: 0.2;
+}
+
+.center-line {
+    stroke: gray;
+    opacity: 70%;
+    stroke-width: 0.2;
+}
+
+.dimension-lines {
+    stroke: orange;
+    fill: orange;
+    stroke-width: 0.2;
+    opacity: 50%;
+    cursor: pointer;
+}
+
+.dimension-lines polyline {
+    fill: none;
+}
+
+.dimension-lines:hover {
+    stroke: red;
+    fill: red;
+    opacity: 100%;
+    stroke-width: 0.5;
+}
+
+.dimension-lines.selected {
+    stroke: red;
+    fill: red;
+    opacity: 100%;
+    stroke-width: 0.5;
+}
+
+.dimension-line {
+}
+
+.dimension-text {
+    font-size: 5px;
+    stroke-width: 0.1;
+}    
+

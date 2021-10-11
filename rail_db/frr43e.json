@@ -1,0 +1,13 @@
+{
+  "name": "Takachi FRR-43E",
+  "type": "single",
+  "size": { "width": 36.2, "height": 8.9 },
+  "offset": { "x": 0, "y": 3.8 },
+  "mountHoles": [
+    { "x": 13.3, "y": 5.3, "d": 4},
+    { "x": 33.3, "y": 5.3, "d": 4}
+  ],
+  "svgFile": "FRR-43E.svg",
+  "group": "",
+  "outputName": "frr43e"
+}

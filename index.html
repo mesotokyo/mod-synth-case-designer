@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+
+    <meta property="og:url" content="https://modesign.meso.tokyo/">
+    <meta property="og:type" content="websote">
+    <meta property="og:title"
+          content="Eurorack Modular Synthesizer Case Designer">
+    <meta property="og:description"
+          content="Eurorack Modular Synthesizer Case Designer">
+    <meta property="og:site_name"
+          content="Eurorack Modular Synthesizer Case Designer">
+    <meta property="og:image" content="https://modesign.meso.tokyo/emscd.png">
+
+    <title>Eurorack Modular Synthesizer Case Designer</title>
+    <script defer src="js/main.js"></script>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#e6ecf5">
+    <meta name="description" 
+          content="Eurorack Modular Synthesizer Case Designer">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="title">
+      <h1>Eurorack Modular Synthesizer Case Designer</h1>
+    </div>
+    <div id="app-main">
+
+      <!-- control panel: forms to control preference -->
+      <div id="control-panel">
+
+        <div class="pref-group">
+          <div class="group-name">Side panel size:</div>
+
+          <label class="form-item-inline">
+            <span class="label">Width [mm]:</span>
+            <input value="50"
+                   jumon-bind="boxWidth" jumon-type="Number">
+          </label>
+
+          <label class="form-item-inline">
+            <span class="label">Height [mm]:</span>
+            <input value="150"
+                   jumon-bind="boxHeight" jumon-type="Number">
+          </label>
+        </div>
+
+        <div class="pref-group">
+          <div class="group-name">Layout:</div>
+          <label class="form-item-inline">
+            <span class="label">Number of rows:</span>
+            <select jumon-bind="rows" jumon-type="Number">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </label>
+          <label class="form-item-inline">
+            <span class="label">positioning mode:</span>
+            <select jumon-bind="positioningMode">
+              <option value="auto" selected>auto</option>
+            </select>
+          </label>
+          <label class="form-item-inline">
+            <span class="label">top offset [mm]:</span>
+            <input value="3"
+                   jumon-bind="topOffset" jumon-type="Number">
+          </label>
+        </div>
+
+        <div class="pref-group">
+          <div class="group-name">Topmost rail:</div>
+          <label class="form-item-inline">
+            <span class="label">rail type:</span>
+            <select class="w150" id="railTypeTop" jumon-bind="railTypeTop">
+            </select>
+          </label>
+          <div>
+            <label>
+              <input type="checkbox" jumon-bind="flipRailTop"> flip
+            </label>
+          </div>
+        </div>
+        
+        <div class="pref-group">
+          <div class="group-name">middle rails:</div>
+          <div id="middle-rails" jumon-bind-renderer="railPrefForm:middleRails">
+          </div>
+        </div>
+        
+        <div class="pref-group">
+          <div class="group-name">Bottommost rail:</div>
+          <label class="form-item-inline">
+            <span class="label">rail type:</span>
+            <select class="w150" id="railTypeBottom" jumon-bind="railTypeBottom">
+            </select>
+          </label>
+          <div>
+            <label>
+              <input type="checkbox" jumon-bind="flipRailBottom" checked> flip
+            </label>
+          </div>
+        </div>
+        
+        <div class="credit">
+          <p class="description">
+          <p>Author: <a href="https://twitter.com/mesotokyo">@mesotokyo</a></p>
+          <p>Source Code: <a href="https://github.com/mesotokyo/mod-synth-case-designer">mesotokyo/mod-synth-case-designer</a></p>
+          </p>
+        </div>
+        
+        <div id="visibilities">
+          <div class="visibilities-wrap">
+            <div class="group-name">Toggle Show/Hide:</div>
+            <div><label><input type="checkbox" checked
+                               jumon-bind="showFrontPanels"> module front panel</label></div>
+            <div><label><input type="checkbox" checked
+                               jumon-bind="showRails"> rail outline</label></div>
+            <div><label><input type="checkbox" checked
+                               jumon-bind="showMountHoles"> mount hole</label></div>
+            <div><label><input type="checkbox" checked
+                               jumon-bind="showDimensions"> mount hole dimesitions</label></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- blueprint: graphical blueprint for design -->
+      <div id="blueprint">
+        <div id="toolbar">
+          <div id="toolbar-item">
+            zoom:
+            <input class="ratio" value="100"
+                   jumon-bind="zoomRatio"
+                   jumon-bind-to="ratioToViewBox:#blueprint-body[viewBox]"
+                   jumon-type="Number"
+                   >%
+            <button jumon-listen="click:zoomOut">-</button>
+            <button jumon-listen="click:zoomIn">+</button>
+            <button jumon-listen="click:zoomReset">100%</button>
+          </div>
+        </div>
+        <svg id="blueprint-body"
+             viewBox="-10 -10 200 200"
+             xmlns="http://www.w3.org/2000/svg">
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>
