@@ -19,7 +19,7 @@
 .rail-rect {
     fill: none;
     stroke: gray;
-    opacity: 50%;
+    opacity: 0.5;
     stroke-width: 0.2;
 }
 
@@ -31,7 +31,7 @@
 
 .center-line {
     stroke: gray;
-    opacity: 70%;
+    opacity: 0.7;
     stroke-width: 0.2;
 }
 
@@ -39,7 +39,7 @@
     stroke: orange;
     fill: orange;
     stroke-width: 0.2;
-    opacity: 50%;
+    opacity: 0.5;
     cursor: pointer;
 }
 
@@ -50,14 +50,14 @@
 .dimension-lines:hover {
     stroke: red;
     fill: red;
-    opacity: 100%;
+    opacity: 1.0;
     stroke-width: 0.5;
 }
 
 .dimension-lines.selected {
     stroke: red;
     fill: red;
-    opacity: 100%;
+    opacity: 1.0;
     stroke-width: 0.5;
 }
 
