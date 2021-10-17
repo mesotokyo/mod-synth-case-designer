@@ -31,7 +31,7 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="title">
-      <h1>Eurorack Modular Synthesizer Case Designer</h1>
+      <h1><a href="/">Eurorack Modular Synthesizer Case Designer</a></h1>
     </div>
     <div id="app-main">
 
@@ -109,6 +109,13 @@
               <input type="checkbox" jumon-bind="flipRailBottom" checked> Flip
             </label>
           </div>
+        </div>
+
+        <div class="share">
+          <span class="title">Share URL: </span>
+          <a href="#"
+             jumon-bind="href:shareUrl"
+             jumon-bind-to="href::"></a>
         </div>
         
         <div class="credit">

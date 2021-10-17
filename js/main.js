@@ -2,6 +2,7 @@ import { Jumon } from 'jumon';
 import { rails } from './rails.js';
 import { draw } from './draw.js';
 import { railPrefForm } from './rail-pref-form.js';
+import { serialize, deserialize } from './serializer.js';
 
 const SVG_ELEM_ID = "blueprint-body";
 
@@ -14,11 +15,22 @@ function initialize() {
   addRailOptions(document.getElementById("railTypeTop"));
   addRailOptions(document.getElementById("railTypeBottom"));
 
-  parameter = new Jumon();
+  // decode query params
+  const q = location.search;
+  let initial = {};
+  if (q) {
+    initial = deserialize(q.substring(1));
+    //const u = new URL(location.href);
+    //u.search = '';
+    //history.replaceState(null, '', u);
+  }
+  initial.middleRails = initial.middleRails || [];
+  console.log(`initial parameter: ${JSON.stringify(initial, null, 2)}`);
+
+  parameter = new Jumon(initial);
   parameter.railPrefForm = function (param, index) {
     return railPrefForm(param, index);
   };
-  parameter.middleRails = [];
   parameter.on('update', updateDesign);
   parameter.ratioToViewBox = function (val) {
     if (isNaN(val)) {
@@ -40,10 +52,21 @@ function initialize() {
   parameter.zoomReset = function () {
     parameter.zoomRatio = 100;
   };
+  parameter.zoomRatio = 50;
 
   updateDesign();
-  parameter.zoomRatio = 50;
+  setQuery();
   console.log("initialize done.");
+}
+
+
+function setQuery() {
+  const q = serialize(parameter);
+  const url = new URL(location.href);
+  url.search = `?${q}`;
+  if (parameter.shareUrl != url.href) {
+    parameter.shareUrl = url.href;
+  }
 }
 
 function addRailOptions(elem) {
@@ -72,8 +95,9 @@ function updateDesign() {
   }
   calcRailPositions();
   console.log("update design!");
-  console.log(`current parameter: ${JSON.stringify(parameter)}`);
+  console.log(`current parameter: ${JSON.stringify(parameter, null, 2)}`);
   draw(svgRoot, parameter);
+  parameter.on('update', setQuery);
 }
 
 function calcRailPositions() {

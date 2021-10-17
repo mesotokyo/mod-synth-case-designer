@@ -2,7 +2,8 @@ import { rails } from './rails.js';
 
 export function railPrefForm(param, index) {
   const options = rails.getRails().map(rail => {
-    return `<option value="${rail.outputName}">${rail.name}</option>`;
+    const selected = param.type === rail.outputName ? "selected" : "";
+    return `<option value="${rail.outputName}" ${selected}>${rail.name}</option>`;
   });
   return `<div>
   <label class="form-item-inline">
