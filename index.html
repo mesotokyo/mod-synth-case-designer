@@ -65,10 +65,17 @@
             </select>
           </label>
           <label class="form-item-inline">
-            <span class="label">Positioning mode:</span>
+            <span class="label">Vertical align:</span>
             <select jumon-bind="positioningMode">
-              <option value="auto" selected>auto</option>
+              <option value="center" selected>center</option>
+              <option value="top">top</option>
+              <option value="bottom">bottom</option>
             </select>
+          </label>
+          <label class="form-item-inline">
+            <span class="label">Vertical offset [mm]:</span>
+            <input value="0"
+                   jumon-bind="verticalOffset" jumon-type="Number">
           </label>
           <label class="form-item-inline">
             <span class="label">Top offset [mm]:</span>

@@ -125,9 +125,19 @@ function calcRailPositions() {
 
   // add clearance
   let topClearance;
-  if (parameter.positioningMode === "auto") {
-    topClearance = (parameter.boxHeight - panelsSum) / 2;
+  if (parameter.positioningMode === "center") {
+    topClearance = parameter.verticalOffset + (parameter.boxHeight - panelsSum) / 2;
+  } else if (parameter.positioningMode === "top") {
+    const offset = rails.getRailGeometry(parameter.railTypeTop,
+                                         parameter.flipRailTop).offset;
+    topClearance = offset.y + parameter.verticalOffset;
+  } else if (parameter.positioningMode === "bottom") {
+    const geom = rails.getRailGeometry(parameter.railTypeBottom,
+                                       parameter.flipRailBottom);
+    const offset = geom.size.height - geom.offset.y;
+    topClearance = parameter.verticalOffset + parameter.boxHeight - panelsSum - offset;
   }
+
   for (let n = 0; n < positions.length; n++) {
     if (n == 0) {
       positions[n] = topClearance;

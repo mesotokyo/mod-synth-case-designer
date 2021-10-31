@@ -28,7 +28,21 @@ class Rails {
     return result;
   }
 
-  getRail(name) {
+  getRailGeometry(name, flip) {
+    const g = this[name];
+    if (!flip) {
+      return {
+        size: { width: g.size.width, height: g.size.height },
+        offset: { x: g.offset.x, y: g.offset.y },
+      };
+    }
+    return {
+        size: { width: g.size.width, height: g.size.height },
+      offset: { x: g.offset.x, y: g.size.height - g.offset.y },
+    };
+  }
+
+  getRail(name, flip) {
     return this[name];
   }
 
